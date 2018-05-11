@@ -1,39 +1,41 @@
 import React from 'react';
 
-const Songs = (props) => {
-
+const Songs = props => {
   const songs = props.songs;
 
   return (
-    <table className='table'>
+    <table className="table">
       <thead>
         <tr>
-          <th></th>
+          <th />
           <th>Name</th>
           <th>Artists</th>
           <th>Genre</th>
         </tr>
       </thead>
       <tbody>
-        {
-          songs && songs.map(song => (
+        {songs &&
+          songs.map(song => (
             <tr key={song.id}>
               <td>
                 <button className="btn btn-default btn-xs">
-                  <span className="glyphicon glyphicon-play"></span>
+                  <span className="glyphicon glyphicon-play" />
                 </button>
               </td>
-              <td>{ song.name }</td>
+              <td>{song.name}</td>
               <td>
-                <span>{ song.artists ? song.artists.map(artist => artist.name).join(', ') : null }</span>
+                <span>
+                  {song.artists
+                    ? song.artists.map(artist => artist.name).join(', ')
+                    : null}
+                </span>
               </td>
-              <td>{ song.genre }</td>
+              <td>{song.genre}</td>
             </tr>
-          ))
-        }
+          ))}
       </tbody>
     </table>
   );
-}
+};
 
 export default Songs;
